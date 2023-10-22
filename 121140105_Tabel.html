@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Halaman Tabel</title>
+    <link rel="stylesheet" type="text/css" href="style_tabel.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Pesta Kostum Halloween</h1>
+        <img src="https://shorturl.at/agjN8" alt="Logo">
+    </div>
+    <div class="sidebar">
+        <h2>Menu Navigasi</h2>
+        <ul>
+            <li><a href="121140105_HalamanUtama.html">Halaman Utama</a></li>
+            <li><a href="121140105_Form.html">Halaman Formulir</a></li>
+            <li><a href="121140105_Tabel.html">Halaman Tabel</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Data Mahasiswa</h2>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Prodi</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Jenis Kelamin</th>
+                <th>Tanggal Lahir</th>
+                <th>Alamat</th>
+            </tr>
+        </table>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Pesta Kostum Halloween - Ahmad Rizki Maulana</p>
+    </div>
+    
+    <script>
+        function tampilkanData() {
+            var data = localStorage.getItem('dataMahasiswa');
+            if (data) {
+                data = JSON.parse(data);
+                var table = document.querySelector('table');
+
+                var row = table.insertRow(1);
+
+                row.insertCell(0).innerHTML = data.nama;
+                row.insertCell(1).innerHTML = data.nim;
+                row.insertCell(2).innerHTML = data.prodi;
+                row.insertCell(3).innerHTML = data.email;
+                row.insertCell(4).innerHTML = data.password;
+                row.insertCell(5).innerHTML = data.gender;
+                row.insertCell(6).innerHTML = data.tgl_lahir;
+                row.insertCell(7).innerHTML = data.alamat;
+            }
+        }
+
+        window.onload = tampilkanData;
+    </script>
+</body>
+</html>
